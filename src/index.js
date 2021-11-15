@@ -16,15 +16,11 @@ const History = (props) => {
   )
 }
 
-const Button = ( props ) => {
-  console.log('props value is', props)
-  const { onClick, text } = props
-  return (
-    <button onClick={onClick}>
+const Button = ({ handleClick, text }) => (
+    <button onClick={handleClick}>
       {text}
     </button>
   )
-}
 
 const App = () => {
   const [left, setLeft] = useState(0)
