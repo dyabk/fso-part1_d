@@ -16,19 +16,31 @@ const History = (props) => {
   )
 }
 
-const Button = ({ handleClick, text }) => (
-    <button onClick={handleClick}>
-      {text}
-    </button>
-  )
-
 const App = () => {
   const [value, setValue] = useState(10)
 
+  const hello = () => {
+    const handler = () => console.log('hello world')
+    return handler
+  }
+
+  const logClick = () => {
+    console.log('clicked the button')
+  }
+
+  const resetState = () => {
+    setValue(0)
+  }
+
+  const handleClick = () => {
+    logClick()
+    resetState()
+  }
+    
   return (
     <div>
       {value}
-      <button>reset to zero</button>
+      <button onClick={hello()}>button</button>
     </div>
   )
 }
