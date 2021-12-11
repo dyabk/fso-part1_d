@@ -19,11 +19,12 @@ const History = (props) => {
 const App = () => {
   const [value, setValue] = useState(10)
 
-  const hello = (who) => {
-    const handler = () => { 
+  const hello = (who) => () => { 
       console.log('hello', who) 
     }
-    return handler
+
+  const setToValue = (newValue) => () => {
+    setValue(newValue)
   }
 
   const logClick = () => {
@@ -42,9 +43,9 @@ const App = () => {
   return (
     <div>
       {value}
-      <button onClick={hello('world')}>button</button>
-      <button onClick={hello('react')}>button</button>
-      <button onClick={hello('function')}>button</button>
+      <button onClick={setToValue(1000)}>thousand</button>
+      <button onClick={setToValue(0)}>reset</button>
+      <button onClick={setToValue(value + 1)}>increment</button>
     </div>
   )
 }
